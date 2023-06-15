@@ -278,6 +278,9 @@ class RegistrationForm extends Component {
             if (result.status === "Success") {
                 this.props.history.push('/users');
             }
+            else{
+                alert(result.error)
+            }
 
         }
     }

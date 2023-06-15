@@ -13,6 +13,6 @@ export async function createUser(item) {
         return response
     }
     else {
-        alert(response.status)
+        return response
     }
 }
