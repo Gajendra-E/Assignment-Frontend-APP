@@ -279,7 +279,7 @@ class RegistrationForm extends Component {
                 this.props.history.push('/users');
             }
             else{
-                alert(result.error)
+                alert(JSON.stringify(result.message))
             }
 
         }
