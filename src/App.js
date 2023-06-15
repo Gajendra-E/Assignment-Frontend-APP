@@ -1,17 +1,10 @@
 
 import React from "react";
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
-import Users from '../src/userInfo'
+import Users from '../src/screens/RegistrationForm'
 import MainLayout from "../src/layouts/MainLayout/index.js";
 
-
-
-
 const App = () => {
-
-
-
-
   return (
     <div>
       <Router>

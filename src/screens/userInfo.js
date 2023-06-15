@@ -16,7 +16,7 @@ import {
     KeyboardDatePicker,
     KeyboardTimePicker
 } from '@material-ui/pickers';
-import { fetchAllUsers } from '../src/actions'
+import { fetchAllUsers } from '../actions'
 import _ from 'underscore';
 
 const styles = theme => ({
