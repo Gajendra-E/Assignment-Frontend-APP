@@ -1,4 +1,7 @@
 
+Backend URL SetUp
+-----------------------
+Replace Your Backend server end point URL at helpers/Constants.js(file path)
 
 To run the application
 ====================================

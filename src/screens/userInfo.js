@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BACK_END_POINT } from "../helpers/Constants";
 
 import {
     Table, TableBody, TableCell, TableHead, TableRow,
@@ -96,7 +97,7 @@ class Users extends Component {
     }
 
  componentDidMount() {
-        fetch('http://localhost:3000/users')
+        fetch(`${BACK_END_POINT}${"users"}`)
             .then(response => response.json())
             .then(data => 
                 this.setState({users:data.payload}) );
