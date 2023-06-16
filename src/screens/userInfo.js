@@ -3,20 +3,14 @@ import { BACK_END_POINT } from "../helpers/Constants";
 
 import {
     Table, TableBody, TableCell, TableHead, TableRow,
-    Typography, Grid, Button, Dialog, DialogActions, Toolbar,
-    DialogContent, DialogTitle, TextField, IconButton, TablePagination, TableContainer, Radio, RadioGroup, FormControlLabel, FormControl, FormHelperText
+    Typography, Grid, Toolbar,
+    TableContainer
 } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { compose } from "redux";
 import moment from 'moment';
-import DateFnsUtils from '@date-io/date-fns';
-import {
-    MuiPickersUtilsProvider,
-    KeyboardDatePicker,
-    KeyboardTimePicker
-} from '@material-ui/pickers';
 import { fetchAllUsers } from '../actions'
 import _ from 'underscore';
 
@@ -91,21 +85,21 @@ class Users extends Component {
     constructor() {
         super();
         this.state = {
-            users:null
+            users: null
         }
-          
+
     }
 
- componentDidMount() {
+    componentDidMount() {
         fetch(`${BACK_END_POINT}${"users"}`)
             .then(response => response.json())
-            .then(data => 
-                this.setState({users:data.payload}) );
-   
+            .then(data =>
+                this.setState({ users: data.payload }));
+
     }
 
 
-   
+
     render() {
         const { classes } = this.props;
         return (
@@ -113,8 +107,8 @@ class Users extends Component {
                 <Grid item xs={12} sm={12} style={{ backgroundColor: "#fff", borderRadius: 5, boxShadow: "0ppx 0px rgba(0, 0, 0, 0.2)" }}>
                     <Toolbar style={{ justifyContent: "space-between", padding: "5px 20px 0px 0px", marginBottom: 10 }}>
                         <div></div>
-                      <Typography className={classes.textStyle} style={{fontSize: "16", color: "#20478E", fontWeight: "bold" }}>Users</Typography>
-                      <div></div>
+                        <Typography className={classes.textStyle} style={{ fontSize: "16", color: "#20478E", fontWeight: "bold" }}>Users</Typography>
+                        <div></div>
                     </Toolbar>
 
                     <TableContainer style={{ backgroundColor: '#f2f2f2' }}>
@@ -125,7 +119,7 @@ class Users extends Component {
                                     <TableCell align="left" className={classes.fontCellHeader}>Email</TableCell>
                                     <TableCell align="left" className={classes.fontCellHeader}>Phone Number</TableCell>
                                     <TableCell align="left" className={classes.fontCellHeader}>Date Of Birth</TableCell>
-                          
+
                                 </TableRow>
                             </TableHead>
 
@@ -137,7 +131,7 @@ class Users extends Component {
                                             <TableCell align="left" className={classes.fontTableCellBody}>{item.email}</TableCell>
                                             <TableCell align="left" className={classes.fontTableCellBody}>{item.phone_number}</TableCell>
                                             <TableCell align="left" className={classes.fontTableCellBody}>{moment(item.date_of_birth).format("DD-MM-YYYY")}</TableCell>
-                                           
+
                                         </TableRow>)
                                     ))
                                         :
@@ -147,12 +141,12 @@ class Users extends Component {
                         </Table>
                     </TableContainer>
                 </Grid>
-                         </div>)
+            </div>)
     }
 }
 
 Users.propTypes = {
     classes: PropTypes.object.isRequired,
 };
-export default compose(withStyles(styles), )(Users);
+export default compose(withStyles(styles),)(Users);
 
